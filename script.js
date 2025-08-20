@@ -68,3 +68,23 @@
         errorMsg.classList.remove("hidden");
       }
     });
+
+    // video-sound
+    document.addEventListener('DOMContentLoaded', () => {
+  const video = document.getElementById('bgVideo');
+
+  // Set volume to 20%
+  video.volume = 0.2;
+
+  // Try to play (may be blocked by browser if no user interaction)
+  video.play().catch(() => {
+    console.log('Autoplay with sound blocked. User interaction required.');
+  });
+
+  // Optional: Unmute on first click if blocked
+  document.body.addEventListener('click', () => {
+    video.muted = false;
+    video.play();
+  }, { once: true });
+});
+
