@@ -9,7 +9,7 @@
 
     // Sample music data (could be from API)
     const sampleMusic = [
-      { title: "Song 1", artist: "Artist A", img: "https://source.unsplash.com/300x200/?music" },
+      { title: "Song 1", artist: "Artist A", img: "https://source.unsplash.com/300x200/?sunset,music" },
       { title: "Song 2", artist: "Artist B", img: "https://source.unsplash.com/300x200/?concert" },
       { title: "Song 3", artist: "Artist C", img: "https://source.unsplash.com/300x200/?dj" },
       { title: "Song 4", artist: "Artist D", img: "https://source.unsplash.com/300x200/?album" },
@@ -24,14 +24,14 @@
       musicContainer.innerHTML = "";
       sampleMusic.forEach(track => {
         const card = document.createElement("div");
-        card.className = "card bg-base-100 shadow-xl border border-transparent hover:border-blue-400 hover:shadow-2xl hover:scale-105 transition-transform duration-300";
+        card.className = "card bg-base-100 shadow-xl border border-transparent hover:border-yellow-400 hover:shadow-2xl hover:scale-105 transition-transform duration-300";
         card.innerHTML = `
           <figure><img src="${track.img}" alt="Album" /></figure>
           <div class="card-body">
-            <h2 class="card-title text-teal-700">${track.title}</h2>
+            <h2 class="card-title text-orange-600">${track.title}</h2>
             <p class="text-gray-600">${track.artist}</p>
             <div class="card-actions justify-end">
-              <button class="btn btn-info text-white">Play</button>
+              <button class="btn bg-yellow-400 hover:bg-yellow-500 text-black">Play</button>
             </div>
           </div>
         `;
@@ -53,9 +53,9 @@
 
         // Update navbar
         navbarActions.innerHTML = `
-          <input id=\"searchInput\" type=\"text\" placeholder=\"Search music...\" class=\"input input-bordered\" />
-          <button id=\"searchBtn\" class=\"btn btn-success text-white\">Search</button>
-          <button id=\"logoutBtn\" class=\"btn btn-error text-white\">Logout</button>
+          <input id=\"searchInput\" type=\"text\" placeholder=\"Search music...\" class=\"input input-bordered text-black\" />
+          <button id=\"searchBtn\" class=\"btn bg-yellow-400 hover:bg-yellow-500 text-black\">Search</button>
+          <button id=\"logoutBtn\" class=\"btn bg-red-600 hover:bg-red-700 text-white\">Logout</button>
         `;
 
         renderMusic();
@@ -68,4 +68,3 @@
         errorMsg.classList.remove("hidden");
       }
     });
- 
