@@ -7,37 +7,53 @@
     const loginNavBtn = document.getElementById("loginNavBtn");
     const musicContainer = document.getElementById("musicContainer");
 
-    // Sample music data (could be from API)
-    const sampleMusic = [
-      { title: "Song 1", artist: "Artist A", img: "https://source.unsplash.com/300x200/?sunset,music" },
-      { title: "Song 2", artist: "Artist B", img: "https://source.unsplash.com/300x200/?concert" },
-      { title: "Song 3", artist: "Artist C", img: "https://source.unsplash.com/300x200/?dj" },
-      { title: "Song 4", artist: "Artist D", img: "https://source.unsplash.com/300x200/?album" },
-      { title: "Song 5", artist: "Artist E", img: "https://source.unsplash.com/300x200/?singer" },
-      { title: "Song 6", artist: "Artist F", img: "https://source.unsplash.com/300x200/?band" },
-      { title: "Song 7", artist: "Artist G", img: "https://source.unsplash.com/300x200/?vinyl" },
-      { title: "Song 8", artist: "Artist H", img: "https://source.unsplash.com/300x200/?headphones" },
-    ];
+    // Example track data
+const tracks = [
+  {
+    img: "https://i.scdn.co/image/ab67616d0000b2734a8b4e1b5c3e80f7d5b5a4b3",
+    title: "Blinding Lights",
+    artist: "The Weeknd"
+  },
+  {
+    img: "https://i.scdn.co/image/ab67616d0000b273b16a9c75b0a16e4b6b40ff7b",
+    title: "Shape of You",
+    artist: "Ed Sheeran"
+  },
+  {
+    img: "https://i.scdn.co/image/ab67616d0000b27363cfe46eec15e616a7bdbd92",
+    title: "Levitating",
+    artist: "Dua Lipa"
+  },
+  {
+    img: "https://i.scdn.co/image/ab67616d0000b273baf3e95f47b8a6f8b32a87c1",
+    title: "Peaches",
+    artist: "Justin Bieber"
+  }
+];
 
-    // Populate music cards
-    function renderMusic() {
-      musicContainer.innerHTML = "";
-      sampleMusic.forEach(track => {
-        const card = document.createElement("div");
-        card.className = "card bg-base-100 shadow-xl border border-transparent hover:border-yellow-400 hover:shadow-2xl hover:scale-105 transition-transform duration-300";
-        card.innerHTML = `
-          <figure><img src="${track.img}" alt="Album" /></figure>
-          <div class="card-body">
-            <h2 class="card-title text-orange-600">${track.title}</h2>
-            <p class="text-gray-600">${track.artist}</p>
-            <div class="card-actions justify-end">
-              <button class="btn bg-yellow-400 hover:bg-yellow-500 text-black">Play</button>
-            </div>
-          </div>
-        `;
-        musicContainer.appendChild(card);
-      });
-    }
+// Get container
+const musicSection = document.getElementById("musicSection");
+
+// Render cards
+tracks.forEach(track => {
+  const card = document.createElement("div");
+  card.className = "card w-64 bg-white shadow-xl rounded-xl overflow-hidden";
+
+  card.innerHTML = `
+    <figure class="h-40 overflow-hidden">
+      <img src="${track.img}" alt="Album Thumbnail" class="w-full h-full object-cover"/>
+    </figure>
+    <div class="card-body p-4">
+      <h2 class="card-title text-orange-600 text-lg font-bold">${track.title}</h2>
+      <p class="text-gray-700">${track.artist}</p>
+      <div class="card-actions justify-end mt-2">
+        <button class="btn bg-yellow-400 hover:bg-yellow-500 text-black px-4">Play</button>
+      </div>
+    </div>
+  `;
+  musicSection.appendChild(card);
+});
+
 
     // Handle login
     loginForm.addEventListener("submit", (e) => {
