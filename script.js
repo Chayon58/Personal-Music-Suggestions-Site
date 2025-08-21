@@ -7,50 +7,55 @@
     const loginNavBtn = document.getElementById("loginNavBtn");
     const musicContainer = document.getElementById("musicContainer");
 
-    // Example track data
+    // Your provided tracks with correct title and artist
 const tracks = [
   {
-    img: "https://i.scdn.co/image/ab67616d0000b2734a8b4e1b5c3e80f7d5b5a4b3",
-    title: "Blinding Lights",
-    artist: "The Weeknd"
+    youtube: "https://youtu.be/KBYSpR8N6pc?si=Ap5wjCj2O9sHDQtB",
+    title: "RagaSitar",
+    artist: "Rishab Rikhiram Sharma"
   },
   {
-    img: "https://i.scdn.co/image/ab67616d0000b273b16a9c75b0a16e4b6b40ff7b",
-    title: "Shape of You",
-    artist: "Ed Sheeran"
-  },
+      youtube: "https://youtu.be/4twsvQvrhvc?si=plzI84cceaSZZgog",
+      title: "Sitar",
+      artist: "Bhagirat bhaat"
+    },
+    {
+      youtube: "https://youtu.be/KepO-GBsqzk?si=7cP7OTKEEVp_7pwE",
+      title: "SitarMorning Raga",
+      artist: "Pandit Ravi Shankar"
+    },
   {
-    img: "https://i.scdn.co/image/ab67616d0000b27363cfe46eec15e616a7bdbd92",
-    title: "Levitating",
-    artist: "Dua Lipa"
-  },
-  {
-    img: "https://i.scdn.co/image/ab67616d0000b273baf3e95f47b8a6f8b32a87c1",
-    title: "Peaches",
-    artist: "Justin Bieber"
+    youtube: "https://youtu.be/ghe6YipmCQY?si=4w0n-82BFgL_Hz-k",
+    title: "Garaj Garaj Jugalbandi",
+    artist: "Farid Hasan"
   }
 ];
 
-// Get container
 const musicSection = document.getElementById("musicSection");
 
-// Render cards
-tracks.forEach(track => {
+tracks.forEach((track) => {
+  // Extract the YouTube video ID from the link
+  const videoId = track.youtube.split("/").pop().split("?")[0];
+  const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+  // Create card element
   const card = document.createElement("div");
-  card.className = "card w-64 bg-white shadow-xl rounded-xl overflow-hidden";
+  card.className = "card bg-white shadow-lg rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300";
 
   card.innerHTML = `
-    <figure class="h-40 overflow-hidden">
-      <img src="${track.img}" alt="Album Thumbnail" class="w-full h-full object-cover"/>
+    <figure class="h-40 overflow-hidden relative">
+      <img src="${thumbnail}" alt="Thumbnail" class="w-full h-full object-cover"/>
+      <button onclick="window.open('${track.youtube}', '_blank')" 
+        class="absolute bottom-2 right-2 btn bg-yellow-400 hover:bg-yellow-500 text-black text-sm px-3 py-1">
+        ▶ Play
+      </button>
     </figure>
     <div class="card-body p-4">
       <h2 class="card-title text-orange-600 text-lg font-bold">${track.title}</h2>
       <p class="text-gray-700">${track.artist}</p>
-      <div class="card-actions justify-end mt-2">
-        <button class="btn bg-yellow-400 hover:bg-yellow-500 text-black px-4">Play</button>
-      </div>
     </div>
   `;
+
   musicSection.appendChild(card);
 });
 

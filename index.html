@@ -38,7 +38,7 @@
     
     <!-- Right: Video with floating notes -->
 <div class="relative overflow-hidden h-80 md:h-auto flex items-center justify-center bg-gradient-to-br from-yellow-100 to-red-200 p-4">
-  <video id="bgVideo" autoplay loop class="w-full h-full object-cover rounded-2xl">
+  <video id="bgVideo" autoplay loop muted class="w-full h-full object-cover rounded-2xl">
     <source src="Assets/m2-res_1080p.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
@@ -57,9 +57,8 @@
   <!-- Music Page (hidden initially) -->
   <main id="musicPage" class="flex-grow p-8 hidden">
     <h2 class="text-3xl font-bold mb-6 text-red-700">🎶 Recommended for You</h2>
-    <div id="musicContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-      <!-- Cards will be injected here -->
-    </div>
+    <div id="musicSection" class="grid grid-cols-1 md:grid-cols-4 gap-4 p-4"></div>
+
   </main>
 
   <!-- Footer -->
@@ -69,6 +68,7 @@
     </aside>
   </footer>
 
+  <script src="https://www.youtube.com/iframe_api"></script>
 <script src="script.js"></script>
 </body>
 </html>
